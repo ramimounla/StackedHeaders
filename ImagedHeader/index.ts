@@ -20,9 +20,10 @@ export class ImagedHeader implements ComponentFramework.StandardControl<IInputs,
     public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
         // Add control initialization code
         var divHeader: HTMLDivElement;
-        divHeader = document.createElement("div");
+		divHeader = document.createElement("div");
+		divHeader.className = "header";
 		
-		divHeader.style.font = "'SegoeUI-Bold', 'SegoeUI-Semibold', 'Segoe UI Semibold', 'Segoe UI Regular', 'Segoe UI'";
+		divHeader.style.font = "'Segoe UI Bold', 'SegoeUI-Semibold', 'Segoe UI Semibold', 'Segoe UI Regular', 'Segoe UI'";
 		divHeader.style.color = context.parameters.fontColor.raw || "";
 		divHeader.style.backgroundColor = context.parameters.backgroundColor.raw || "";
 		divHeader.style.fontSize =  context.parameters.fontSize.raw || "";
@@ -31,10 +32,13 @@ export class ImagedHeader implements ComponentFramework.StandardControl<IInputs,
 		let imageSpan: HTMLSpanElement;
 		let textSpan: HTMLSpanElement;
 		imageSpan = document.createElement("span");
+		imageSpan.className = "image-span";
+
 		textSpan = document.createElement("span");
+		textSpan.className = "text-span";
 
 		textSpan.innerText = context.parameters.headerText.raw + "";
-		
+
 		let image: HTMLImageElement;
 		image = document.createElement("img");
 		image.src = context.parameters.image.raw || "";

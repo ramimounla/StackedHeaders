@@ -6,7 +6,7 @@
     <property name="fontColor" display-name-key="Font Color" description-key="Head front color" usage="input" of-type="SingleLine.Text" required="false" default-value="#FFF" />
     <property name="fontSize" display-name-key="Font Size" description-key="Header font size" usage="input" of-type="SingleLine.Text" required="false" default-value="1.2rem"/>
     <property name="backgroundColor" display-name-key="Background Color" description-key="Header Background Color" usage="input" of-type="SingleLine.Text" required="false" default-value="#000"/>
-    <property name="image" display-name-key="Header Image" description-key="Header image that will be displayed on the left hand side" usage="input" of-type="SingleLine.Text" required="false" default-value="#000"/>
+    <property name="image" display-name-key="Header Image" description-key="Header image that will be displayed on the left hand side" usage="input" of-type="SingleLine.Text" required="false" default-value="http://xrmenterprise.com/wp-content/uploads/2019/12/project_white_16.png"/>
     <!-- 
       Property node's of-type attribute can be of-type-group attribute. 
       Example:
@@ -20,6 +20,7 @@
     -->
     <resources>
       <code path="index.ts" order="1"/>
+      <css path="css/style.css" order="1" />
       <!-- UNCOMMENT TO ADD MORE RESOURCES
       <css path="css/ImagedHeader.css" order="1" />
       <resx path="strings/ImagedHeader.1033.resx" version="1.0.0" />
