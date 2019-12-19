@@ -1,6 +1,6 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 
-export class ImagedHeader implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+export class StackedHeader implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
 	/**
 	 * Empty constructor.
@@ -19,17 +19,16 @@ export class ImagedHeader implements ComponentFramework.StandardControl<IInputs,
 	 */
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
 		// Add control initialization code
-		container.appendChild(this.setupHeader(context.parameters.headerText1.raw, context.parameters.fontSize1.raw, context.parameters.backgroundColor1.raw, context.parameters.fontSize1.raw, context.parameters.image1.raw));
+		container.appendChild(this.setupHeader(context.parameters.headerText1.raw, context.parameters.fontColor1.raw, context.parameters.backgroundColor1.raw, context.parameters.fontSize1.raw, context.parameters.image1.raw, context.parameters.tabName1.raw));
 
-		if (((context.parameters.headerText2.raw + "").trim().length > 0))
-			container.appendChild(this.setupHeader(context.parameters.headerText2.raw, context.parameters.fontSize2.raw, context.parameters.backgroundColor2.raw, context.parameters.fontSize2.raw, context.parameters.image2.raw));
+		if (((context.parameters.headerText2.raw).trim().length > 0))
+			container.appendChild(this.setupHeader(context.parameters.headerText2.raw, context.parameters.fontColor2.raw, context.parameters.backgroundColor2.raw, context.parameters.fontSize2.raw, context.parameters.image2.raw, context.parameters.tabName2.raw));
 
-		if (((context.parameters.headerText3.raw + "").trim().length > 0))
-			container.appendChild(this.setupHeader(context.parameters.headerText3.raw, context.parameters.fontSize3.raw, context.parameters.backgroundColor3.raw, context.parameters.fontSize3.raw, context.parameters.image3.raw));
+		if (((context.parameters.headerText3.raw).trim().length > 0))
+			container.appendChild(this.setupHeader(context.parameters.headerText3.raw, context.parameters.fontColor3.raw, context.parameters.backgroundColor3.raw, context.parameters.fontSize3.raw, context.parameters.image3.raw, context.parameters.tabName3.raw));
 	}
 
-	private setupHeader(headerText: string, fontColor: string, backgroundColor: string, fontSize: string, imageUrl: string): HTMLDivElement {
-
+	private setupHeader(headerText: string, fontColor: string, backgroundColor: string, fontSize: string, imageUrl: string, tabName: string): HTMLDivElement {
 		var divHeader: HTMLDivElement;
 		divHeader = document.createElement("div");
 		divHeader.className = "header";
@@ -54,6 +53,11 @@ export class ImagedHeader implements ComponentFramework.StandardControl<IInputs,
 		image = document.createElement("img");
 		image.src = imageUrl;
 
+		if (((tabName).trim().length > 0)) {
+			divHeader.style.cursor = "pointer";
+			divHeader.onclick = ((e: MouseEvent) => this.navigateToTab(tabName));
+		}
+
 		imageSpan.appendChild(image);
 		divHeader.appendChild(imageSpan);
 		divHeader.appendChild(textSpan);
@@ -61,6 +65,9 @@ export class ImagedHeader implements ComponentFramework.StandardControl<IInputs,
 		return divHeader;
 	}
 
+	private navigateToTab(tabName: string): void {
+		eval("Xrm.Page.ui.tabs.get(tabName).setFocus()");
+	}
 
 	/**
 	 * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
