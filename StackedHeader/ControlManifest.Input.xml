@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="XrmEnterprise" constructor="StackedHeader" version="0.0.1" display-name-key="StackedHeader" description-key="StackedHeader description" control-type="standard">
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+    <property name="headerText1" display-name-key="First Header Text" description-key="Text to appear in the first header" usage="bound" of-type="SingleLine.Text" required="true" default-value="Header" />
+    <property name="fontColor1" display-name-key="First Header Font Color" description-key="First header front color" usage="input" of-type="SingleLine.Text" required="false" default-value="#FFF" />
+    <property name="fontSize1" display-name-key="First Header Font Size" description-key="First header font size" usage="input" of-type="SingleLine.Text" required="false" default-value="1.2rem"/>
+    <property name="backgroundColor1" display-name-key="First Header Background Color" description-key="First header Background Color" usage="input" of-type="SingleLine.Text" required="false" default-value="#000"/>
+    <property name="image1" display-name-key="First Header Header Image" description-key="First header image that will be displayed on the left hand side" usage="input" of-type="SingleLine.Text" required="false" default-value="http://xrmenterprise.com/wp-content/uploads/2019/12/project_white_16.png"/>
+
+    <property name="headerText2" display-name-key="Second Header Text" description-key="Text to appear in the second header" usage="bound" of-type="SingleLine.Text" required="false" />
+    <property name="fontColor2" display-name-key="Second Header Font Color" description-key="Second header  front color" usage="input" of-type="SingleLine.Text" required="false" default-value="#FFF" />
+    <property name="fontSize2" display-name-key="Second Header Font Size" description-key="Second header  font size" usage="input" of-type="SingleLine.Text" required="false" default-value="1.2rem"/>
+    <property name="backgroundColor2" display-name-key="Second Header Background Color" description-key="Second header  Background Color" usage="input" of-type="SingleLine.Text" required="false" default-value="#000"/>
+    <property name="image2" display-name-key="Second Header Header Image" description-key="Second header image that will be displayed on the left hand side" usage="input" of-type="SingleLine.Text" required="false" default-value="http://xrmenterprise.com/wp-content/uploads/2019/12/project_white_16.png"/>
+
+    <property name="headerText3" display-name-key="Third Header Text" description-key="Text to appear in the third header" usage="bound" of-type="SingleLine.Text" required="false" />
+    <property name="fontColor3" display-name-key="Third Header Font Color" description-key="Third header front color" usage="input" of-type="SingleLine.Text" required="false" default-value="#FFF" />
+    <property name="fontSize3" display-name-key="Third Header Font Size" description-key="Third header font size" usage="input" of-type="SingleLine.Text" required="false" default-value="1.2rem"/>
+    <property name="backgroundColor3" display-name-key="Third Header Background Color" description-key="Third header  Background Color" usage="input" of-type="SingleLine.Text" required="false" default-value="#000"/>
+    <property name="image3" display-name-key="Third Header Header Image" description-key="Third header image that will be displayed on the left hand side" usage="input" of-type="SingleLine.Text" required="false" default-value="http://xrmenterprise.com/wp-content/uploads/2019/12/project_white_16.png"/>
+    <!-- 
+      Property node's of-type attribute can be of-type-group attribute. 
+      Example:
+      <type-group name="numbers">
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+      </type-group>
+      <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type-group="numbers" usage="bound" required="true" />
+    -->
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="css/style.css" order="1" />
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+      <css path="css/ImagedHeader.css" order="1" />
+      <resx path="strings/ImagedHeader.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>
