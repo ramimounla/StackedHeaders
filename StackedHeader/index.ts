@@ -19,13 +19,13 @@ export class StackedHeader implements ComponentFramework.StandardControl<IInputs
 	 */
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
 		// Add control initialization code
-		container.appendChild(this.setupHeader(context.parameters.headerText1.raw, context.parameters.fontColor1.raw, context.parameters.backgroundColor1.raw, context.parameters.fontSize1.raw, context.parameters.image1.raw, context.parameters.tabName1.raw));
+		container.appendChild(this.setupHeader(context.parameters.headerText1.raw || "", context.parameters.fontColor1.raw || "",  context.parameters.backgroundColor1.raw || "", context.parameters.fontSize1.raw || "", context.parameters.image1.raw || "", context.parameters.tabName1.raw || ""));
 
-		if (((context.parameters.headerText2.raw).trim().length > 0))
-			container.appendChild(this.setupHeader(context.parameters.headerText2.raw, context.parameters.fontColor2.raw, context.parameters.backgroundColor2.raw, context.parameters.fontSize2.raw, context.parameters.image2.raw, context.parameters.tabName2.raw));
+		if (((context.parameters.headerText2.raw || "").trim().length > 0))
+			container.appendChild(this.setupHeader(context.parameters.headerText2.raw || "", context.parameters.fontColor2.raw || "", context.parameters.backgroundColor2.raw || "", context.parameters.fontSize2.raw || "", context.parameters.image2.raw || "", context.parameters.tabName2.raw || ""));
 
-		if (((context.parameters.headerText3.raw).trim().length > 0))
-			container.appendChild(this.setupHeader(context.parameters.headerText3.raw, context.parameters.fontColor3.raw, context.parameters.backgroundColor3.raw, context.parameters.fontSize3.raw, context.parameters.image3.raw, context.parameters.tabName3.raw));
+		if (((context.parameters.headerText3.raw || "").trim().length > 0))
+			container.appendChild(this.setupHeader(context.parameters.headerText3.raw || "", context.parameters.fontColor3.raw || "", context.parameters.backgroundColor3.raw || "", context.parameters.fontSize3.raw || "", context.parameters.image3.raw || "", context.parameters.tabName3.raw || ""));
 	}
 
 	private setupHeader(headerText: string, fontColor: string, backgroundColor: string, fontSize: string, imageUrl: string, tabName: string): HTMLDivElement {
@@ -47,7 +47,7 @@ export class StackedHeader implements ComponentFramework.StandardControl<IInputs
 		textSpan = document.createElement("span");
 		textSpan.className = "text-span";
 
-		textSpan.innerText = headerText;
+		textSpan.innerText = headerText || "";
 
 		let image: HTMLImageElement;
 		image = document.createElement("img");
